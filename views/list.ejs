@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!--<% if(kindofday==="Saturday" || kindofday==="Sunday"){ %>
+        <h1 style="color: rgb(247, 91, 35);"><%= kindofday %></h1>
+   <% }else{ %>
+        <h1 style="color: chartreuse;"><%= kindofday %></h1>
+   <% } %>-->  
+    <div class="box" id="heading">
+        <h1><%= kindofday %></h1>
+    </div>
+   
+     <div class="box">
+      <%  newItems.forEach((item)=>{ %>
+        <form method="POST" action="/delete">
+        <div class="item">
+            <input type="checkbox" value="<%= item._id %>" name="checkbox" onchange="this.form.submit()">
+            <p><%= item.name %></p>
+        </div>   
+        <input type="hidden" name="hiddenInput" value="<%= kindofday %>"></input>
+    </form>
+     <%  }) %>
+    
+    <form class="item" method="POST" action="/">
+        <input type="text" name="newInput" placeholder="New Task" autocomplete="off">
+        <button type="submit" name="inputButton" value="<%= kindofday %>">+</button>
+    </form>
+</div>
+</body>
+</html>
