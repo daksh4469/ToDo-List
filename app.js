@@ -39,7 +39,7 @@ const defaultItems = [item1, item2, item3];
 const listSchema = {name: String, items: [itemsSchema]};
 
 //creating the model for a new collection: Lists, named "List".
-const List = mongoose.model("List", listSchema); 
+const List = mongoose.model("List", listSchema);
 
 
 
@@ -90,7 +90,7 @@ app.get("/:randomList", (req,res)=>{
             }
         }
     });
- 
+
 });
 
 
@@ -116,7 +116,7 @@ app.post("/", (req,res) =>{
             res.redirect("/" + listName);
         })
     }
-    
+
 });
 
 //to delete the item on hitting the checkbox.
@@ -143,10 +143,16 @@ app.post("/delete", (req,res)=>{
             }
           });
     }
-    
+
 });
 
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
+
+
 //server on localhost:3000.
-app.listen(3000, function(){
+app.listen(port, function(){
     console.log("Server is up and Running!!!");
 });
