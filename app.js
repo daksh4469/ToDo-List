@@ -30,6 +30,7 @@ const Item = mongoose.model("Collection", itemsSchema);
 const item1 = new Item({name: "Welcome to your own ToDo List..."});
 const item2 = new Item({name: "Hit the + to add a new item"});
 const item3 = new Item({name: "By Daksh Doshi"});
+console.log(mongoose.connection.readyState);
 
 //putting all 3 into an array.
 const defaultItems = [item1, item2, item3];
